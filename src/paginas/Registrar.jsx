@@ -1,6 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router-dom"
 
 export const Registrar = () => {
+
+  const [nombre,setNombre] = useState('');
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
+  const [repetirPassword,setRepetirPassword] = useState('');
+
   return (
     <>
     <h1 className="text-sky-600 font-black text-6xl capitalize">Crea Tu Cuenta y administra tus {''}<span className="text-slate-700">proyectos</span></h1>
@@ -16,6 +23,8 @@ export const Registrar = () => {
           type="text"
           placeholder="Tú nombre"
           className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+          value={ nombre }
+          onChange={e => setNombre(e.target.value)}
         />
       </div>
       <div className="my-5">
@@ -28,6 +37,8 @@ export const Registrar = () => {
           type="email"
           placeholder="Email de Registro"
           className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
         />
       </div>
       <div className="my-5">
@@ -39,6 +50,8 @@ export const Registrar = () => {
           type="password"
           placeholder="Password de Usuario"
           className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
         />
       </div>
       <div className="my-5">
@@ -50,6 +63,8 @@ export const Registrar = () => {
           type="password"
           placeholder="Repetir Tú Password"
           className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+          value={repetirPassword}
+          onChange={ e => setRepetirPassword(e.target.value) }
         />
       </div>
       <input 
@@ -70,6 +85,6 @@ export const Registrar = () => {
         className='block text-center my-5 text-slate-500 uppercase text-sm'
       >Olvide Mi Password</Link>
     </nav>
-  </>
+    </>
   )
 }

@@ -5,13 +5,13 @@ import { Alerta } from "../components/Alerta";
 
 export const NuevoPassword = () => {
 
+  const [password,setPassword] = useState('');
   const [tokenValido,setTokenValido] = useState(false);
   const [alerta,setAlerta] = useState({});
+  const [passwordModificado,setPasswordModificado] = useState(false);
 
   const params = useParams();
   const { token } = params;
-
-  console.log(token);
 
   useEffect(()=> {
     const comprobarToken = async () => {
@@ -28,6 +28,35 @@ export const NuevoPassword = () => {
     comprobarToken();
   },[]);
 
+  const handleSubmit = async e => {
+    e.preventDefault();    
+
+    if(password.length < 6){
+      setAlerta({
+        msg: 'El Password debe ser minimo de 6 caracteres',
+        error: true
+      });
+      return;
+    }
+
+    try{
+
+      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/usuarios/olvide-password/${token}`,{password});
+      
+      setAlerta({
+        msg: data.msg,
+        error:false,
+      });
+      setPasswordModificado(true);
+
+    }catch(error){
+      setAlerta({
+        msg: error.response.data.msg,
+        error:true,
+      });
+    }
+  }
+
   const { msg } = alerta;
 
   return (
@@ -40,7 +69,10 @@ export const NuevoPassword = () => {
     {msg && <Alerta alerta={alerta} />}
 
       {tokenValido && (
-        <form className="my-10 bg-white shadow rounded-lg p-10">
+        <form 
+          className="my-10 bg-white shadow rounded-lg p-10"
+          onSubmit={handleSubmit}
+        >
         <div className="my-5">
           <label 
           className="uppercase text-gray-600 block text-xl font-bold"
@@ -50,6 +82,8 @@ export const NuevoPassword = () => {
             type="password"
             placeholder="Escribe tu Nuevo Password"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+            value={password}
+            onChange={ e => setPassword(e.target.value) }
           />
         </div>
         <input 
@@ -59,6 +93,13 @@ export const NuevoPassword = () => {
           rounded hover:cursor-pointer hover:bg-sky-800 transition-colors"
         />
       </form>
+      )}
+
+      {passwordModificado && (
+        <Link
+          className='block text-center my-5 text-slate-500 uppercase text-sm'
+          to="/"
+        >Inicia Sesión</Link>
       )}
 
     </>

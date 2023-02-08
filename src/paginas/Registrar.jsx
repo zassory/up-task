@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import { Alerta } from "../components/Alerta";
-import axios from "axios";
+
+import clienteAxios from "../config/clienteAxios";
 
 export const Registrar = () => {
 
@@ -23,7 +24,7 @@ export const Registrar = () => {
           });
           return;
       }
-
+      //Si pasa la 1era validacion
       if(password !== repetirPassword){
           setAlerta({
             msg: 'Los password no coinciden',
@@ -42,22 +43,20 @@ export const Registrar = () => {
 
       setAlerta({});
 
-      try{
-        
-        // TODO: Mover hacia un cliente Axios
-        const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/usuarios`, {
+      try{                
+        const { data } = await clienteAxios.post(`/usuarios`, {
           nombre,
           email,
           password,
         });
+
+        console.log(data);
 
         setAlerta({
           msg: data.msg,
           error: false,
         });
 
-        //ya se creo un usuario
-        //Reiniciar el formulario
         setNombre('');
         setEmail('');
         setPassword('');

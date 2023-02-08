@@ -20,9 +20,25 @@ export const Login = () => {
         error: true,
       });
       setTimeout(()=> {
-        setAlerta('');
+        setAlerta({});
       },3000);
       return;
+    }
+
+    try{
+
+      const url = '/usuarios/login';
+      const { data } = await clienteAxios.post(url,{ email , password });
+
+      setAlerta({});
+      localStorage.setItem('token',data.token);
+
+    }catch(error){
+      console.log(error.response.data.msg);
+      setAlerta({
+        msg:error.response.data.msg,
+        error:true
+      });
     }
   }
 

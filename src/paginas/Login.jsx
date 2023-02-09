@@ -3,6 +3,8 @@ import { Link , useNavigate } from 'react-router-dom';
 
 import { Alerta } from '../components/Alerta';
 
+import useAuth from '../hooks/useAuth';
+
 import clienteAxios from '../config/clienteAxios';
 
 export const Login = () => {
@@ -10,6 +12,9 @@ export const Login = () => {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [alerta,setAlerta] = useState('');
+
+  const {  } = useAuth();
+  
 
   const handleSubmit = async e => {
     e.preventDefault();

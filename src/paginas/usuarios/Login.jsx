@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link , useNavigate } from 'react-router-dom';
 
-import { Alerta } from '../components/Alerta';
+import { Alerta } from '../../components';
 
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 
-import clienteAxios from '../config/clienteAxios';
+import clienteAxios from '../../config/clienteAxios';
 
 export const Login = () => {
 

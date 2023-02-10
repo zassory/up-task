@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
-import { Alerta } from "../components/Alerta";
+import { Alerta } from "../../components";
 
-import clienteAxios from "../config/clienteAxios";
+import clienteAxios from "../../config/clienteAxios";
 
 export const Registrar = () => {
 

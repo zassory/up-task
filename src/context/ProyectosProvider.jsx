@@ -61,6 +61,8 @@ const ProyectosProvider = ({children}) => {
                 error: false,
             });
 
+            setProyectos([...proyectos, data]);
+
             setTimeout(()=> {
                 setAlerta({});
                 navigate('/proyectos');

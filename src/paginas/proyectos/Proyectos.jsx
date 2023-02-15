@@ -12,7 +12,7 @@ export const Proyectos = () => {
       <div className="bg-white shadow mt-10 rounded-lg ">
         {proyectos.length ?
           proyectos.map(proyecto => (
-            <PreviewProyecto 
+            <PreviewProyecto
               key={proyecto._id}
               proyecto={proyecto}
             />

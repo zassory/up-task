@@ -8,7 +8,7 @@ import {
     ConfirmarCuenta ,
  } from './paginas/usuarios';
 
-import { Proyectos , NuevoProyecto , Proyecto } from './paginas/proyectos';
+import { Proyectos , NuevoProyecto , Proyecto , EditarProyecto } from './paginas/proyectos';
 
 import { AuthProvider , ProyectosProvider } from './context';
 
@@ -31,6 +31,7 @@ function App() {
               <Route index element={<Proyectos /> }/>
               <Route path="crear-proyecto" element={<NuevoProyecto />} />
               <Route path=":id" element={<Proyecto />} />
+              <Route path="editar/:id" element={<EditarProyecto />} />
             </Route>
           </Routes>
         </ProyectosProvider>

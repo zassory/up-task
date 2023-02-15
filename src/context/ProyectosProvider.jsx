@@ -8,6 +8,8 @@ const ProyectosProvider = ({children}) => {
 
     const [proyectos,setProyectos] = useState([]);
     const [alerta,setAlerta] = useState({});
+    const [proyecto,setProyecto] = useState({});
+    const [cargando,setCargando] = useState(false);
 
     const navigate = useNavigate();
 
@@ -74,6 +76,8 @@ const ProyectosProvider = ({children}) => {
     }
 
     const obtenerProyecto = async id => {
+
+        setCargando(true);
         
         try{
 
@@ -88,10 +92,12 @@ const ProyectosProvider = ({children}) => {
             }
 
             const { data } = await clienteAxios(`/proyectos/${id}`, config);
-            console.log(data);
+            setProyecto(data);
 
         }catch(error){
             console.log(error);
+        } finally {
+            setCargando(false);
         }
 
     }
@@ -104,6 +110,8 @@ const ProyectosProvider = ({children}) => {
                 alerta,
                 submitProyecto,
                 obtenerProyecto,
+                proyecto,
+                cargando,
             }}
         >
             {children}

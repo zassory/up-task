@@ -68,6 +68,12 @@ export const Proyecto = () => {
             Nueva Tarea
           </button>
 
+          <p className="font-bold text-xl mt-10">Tareas del Proyecto</p>
+
+          <div className="bg-white shadow mt-10 rounded-lg">
+
+          </div>
+
           <ModalFormularioTarea 
             modal={modal}
             setModal={setModal}

@@ -135,7 +135,7 @@ const ProyectosProvider = ({children}) => {
                 }
             }
 
-            const { data } = await clienteAxios(`/proyectos/${id}`, config);
+            const { data } = await clienteAxios(`/proyectos/${id}`, config);        
             setProyecto(data);
 
         }catch(error){

@@ -183,7 +183,6 @@ const ProyectosProvider = ({children}) => {
 
     const handleModalTarea = () => {
         setModalFormularioTarea(!modalFormularioTarea);
-        console.log('Pasa por aqui');
     }
 
 

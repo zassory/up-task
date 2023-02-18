@@ -29,7 +29,12 @@ const ModalFormularioTarea = () => {
             return;
         }
 
-        submitTarea({nombre,descripcion,fechaEntrega,prioridad, proyecto: params.id});
+        await submitTarea({nombre,descripcion,fechaEntrega,prioridad, proyecto: params.id});
+
+        setNombre('');
+        setDescripcion('');
+        setFechaEntrega('');
+        setPrioridad('');
     }
 
     const { msg } = alerta;

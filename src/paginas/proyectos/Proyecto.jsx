@@ -1,4 +1,4 @@
-import { useEffect , useState } from "react";
+import { useEffect } from "react";
 import { useParams , Link } from "react-router-dom";
 import  useProyectos  from "../../hooks/useProyectos";
 import ModalFormularioTarea from "../../components/ModalFormularioTarea";
@@ -8,9 +8,7 @@ export const Proyecto = () => {
 
   const params = useParams();
 
-  const { obtenerProyecto , proyecto , cargando , handleModalTarea } = useProyectos();
-
-  const [modal,setModal] = useState(false);
+  const { obtenerProyecto , proyecto , cargando , handleModalTarea } = useProyectos();  
 
   useEffect( ()=> {
     obtenerProyecto(params.id);
@@ -83,10 +81,7 @@ export const Proyecto = () => {
               <p className="text-center my-5 p-10">No hay tareas en este proyecto</p>}
           </div>
 
-          <ModalFormularioTarea 
-            modal={modal}
-            setModal={setModal}
-          />
+          <ModalFormularioTarea />
 
         </>        
     )

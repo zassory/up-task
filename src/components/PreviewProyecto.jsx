@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export const PreviewProyecto = ({proyecto}) => {
 
-  const { nombre , _id , cliente } = proyecto;
+  const { nombre , _id , cliente } = proyecto;  
 
   return (
     <div className='border-b p-5 flex'>

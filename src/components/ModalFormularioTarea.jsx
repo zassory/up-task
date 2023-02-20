@@ -16,7 +16,12 @@ const ModalFormularioTarea = () => {
 
     const params = useParams();
 
-    const { modalFormularioTarea , handleModalTarea , mostrarAlerta , alerta , submitTarea } = useProyectos();
+    const { modalFormularioTarea , handleModalTarea , mostrarAlerta , 
+        alerta , submitTarea , tarea } = useProyectos();
+
+    useEffect(()=> {
+        console.log("En el useEffect: ",tarea);
+    },[tarea]);
 
     const handleSubmit = async e => {
         e.preventDefault();

@@ -10,6 +10,8 @@ import {
 
 import { Proyectos , NuevoProyecto , Proyecto , EditarProyecto } from './paginas/proyectos';
 
+import { NuevoColaborador } from './paginas/colaborador';
+
 import { AuthProvider , ProyectosProvider } from './context';
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
             <Route path="/proyectos" element={<RutaProtegida />}>
               <Route index element={<Proyectos /> }/>
               <Route path="crear-proyecto" element={<NuevoProyecto />} />
+              <Route path="nuevo-colaborador/:id" element={<NuevoColaborador />} />
               <Route path=":id" element={<Proyecto />} />
               <Route path="editar/:id" element={<EditarProyecto />} />
             </Route>

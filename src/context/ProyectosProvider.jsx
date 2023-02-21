@@ -238,8 +238,13 @@ const ProyectosProvider = ({children}) => {
 
             const { data } = await clienteAxios.put(`/tareas/${tarea.id}`, tarea , config );
             
-
             // TODO: Actualizar el DOM
+            const proyectoActualizado  = {...proyecto};
+            proyectoActualizado.tareas = proyectoActualizado.tareas.map( tareaState =>
+                tareaState._id === data._id ? data : tareaState );
+            
+            setProyecto(proyectoActualizado);
+
             setAlerta({});
             setModalFormularioTarea(false);
             

@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useParams , Link } from "react-router-dom";
+
 import  useProyectos  from "../../hooks/useProyectos";
+//Components
 import ModalFormularioTarea from "../../components/ModalFormularioTarea";
 import { Tarea } from "../../components";
 
@@ -8,7 +10,7 @@ export const Proyecto = () => {
 
   const params = useParams();
 
-  const { obtenerProyecto , proyecto , cargando , handleModalTarea } = useProyectos();  
+  const { obtenerProyecto , proyecto , cargando , handleModalTarea } = useProyectos();
 
   useEffect( ()=> {
     obtenerProyecto(params.id);
@@ -26,7 +28,7 @@ export const Proyecto = () => {
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
-              viewBox="0 0 24 24" 
+              viewBox="0 0 24 24"
               strokeWidth={1.5} 
               stroke="currentColor" 
               className="w-6 h-6"
@@ -70,9 +72,11 @@ export const Proyecto = () => {
           <p className="font-bold text-xl mt-10">Tareas del Proyecto</p>
 
           <div className="bg-white shadow mt-10 rounded-lg">
-            {proyecto.tareas?.length ? 
+            {
+            //PENDING
+            proyecto.tareas?.length ?
               proyecto.tareas?.map( tarea => (
-                <Tarea 
+                <Tarea
                   key={tarea._id}
                   tarea={tarea}
                 />

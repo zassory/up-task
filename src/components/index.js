@@ -7,3 +7,4 @@ export * from './FormularioProyecto';
 export * from './PreviewProyecto';
 export * from './ModalFormularioTarea';
 export * from './Tarea';
+export * from './ModalEliminarTarea';

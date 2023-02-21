@@ -244,7 +244,6 @@ const ProyectosProvider = ({children}) => {
                 tareaState._id === data._id ? data : tareaState );
             
             setProyecto(proyectoActualizado);
-
             setAlerta({});
             setModalFormularioTarea(false);
             

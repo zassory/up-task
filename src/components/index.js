@@ -9,3 +9,4 @@ export * from './ModalFormularioTarea';
 export * from './Tarea';
 export * from './ModalEliminarTarea';
 export * from './FormularioColaborador';
+export * from './Colaborador';

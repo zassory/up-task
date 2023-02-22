@@ -7,7 +7,7 @@ import {Alerta} from './Alerta';
 
 const  PRIORIDAD = ['Baja','Media','Alta'];
 
-const ModalFormularioTarea = () => {
+export const ModalFormularioTarea = () => {
 
     const [id,setId] = useState('');
     const [nombre,setNombre] = useState('');
@@ -204,5 +204,3 @@ const ModalFormularioTarea = () => {
         </Transition.Root>
     )
 }
-
-export default ModalFormularioTarea

@@ -3,9 +3,12 @@ import { useParams , Link } from "react-router-dom";
 
 import  useProyectos  from "../../hooks/useProyectos";
 //Components
-import ModalFormularioTarea from "../../components/ModalFormularioTarea";
-import ModalEliminarTarea from "../../components/ModalEliminarTarea";
-import { Tarea , Alerta } from "../../components";
+import { 
+  ModalFormularioTarea , 
+  ModalEliminarTarea , 
+  Tarea , 
+  Alerta , 
+  Colaborador } from "../../components";
 
 export const Proyecto = () => {
 
@@ -16,6 +19,8 @@ export const Proyecto = () => {
   useEffect( ()=> {
     obtenerProyecto(params.id);
   }, [] );
+
+  console.log(proyecto);
 
   const { nombre } = proyecto;
 
@@ -99,6 +104,18 @@ export const Proyecto = () => {
               to={`/proyectos/nuevo-colaborador/${proyecto._id}`}
               className='text-gray-400 hover:text-black uppercase font-bold'
             >Añadir</Link>
+          </div>
+
+          <div className="bg-white shadow mt-10 rounded-lg">
+              {proyecto.colaboradores?.length ?
+                proyecto.colaboradores?.map(colaborador => (
+                  <Colaborador 
+                    key={colaborador._id}
+                    colaborador={colaborador}
+                  />
+                )):
+                <p className="text-center my-5 p-10">No hay colaboradores en este proyecto</p>
+              }
           </div>
           
 

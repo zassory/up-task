@@ -4,7 +4,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import useProyectos from '../hooks/useProyectos';
 
 
-const ModalEliminarTarea = () => {
+export const ModalEliminarTarea = () => {
 
     const { modalEliminarTarea , handleModalEliminarTarea , eliminarTarea } = useProyectos();
  
@@ -110,5 +110,3 @@ const ModalEliminarTarea = () => {
         </Transition.Root>
     )
 }
-
-export default ModalEliminarTarea

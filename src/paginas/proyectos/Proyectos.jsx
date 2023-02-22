@@ -1,5 +1,6 @@
 import useProyectos from "../../hooks/useProyectos";
 import { PreviewProyecto } from "../../components";
+import { useEffect } from "react";
 
 export const Proyectos = () => {
 

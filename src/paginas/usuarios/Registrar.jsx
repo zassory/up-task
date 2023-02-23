@@ -48,9 +48,7 @@ export const Registrar = () => {
           nombre,
           email,
           password,
-        });
-
-        console.log(data);
+        });        
 
         setAlerta({
           msg: data.msg,

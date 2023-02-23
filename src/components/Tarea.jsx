@@ -1,12 +1,14 @@
 
 import { formatearFecha } from '../helpers/formatearFecha';
 import useProyectos from '../hooks/useProyectos';
+import useAdmin from '../hooks/useAdmin';
 
 export const Tarea = ({tarea}) => {
 
   const { handleModalEditarTarea , handleModalEliminarTarea } = useProyectos();
   const { descripcion, nombre, prioridad, fechaEntrega , estado , _id } = tarea;
 
+  const admin = useAdmin();
 
   return (
     <div className="border-b p-5 flex justify-between items-center">
@@ -17,12 +19,14 @@ export const Tarea = ({tarea}) => {
             <p className="mb-1 text-gray-600">Prioridad: {prioridad}</p>
         </div>
         <div className="flex gap-4">
-            <button
-                className="bg-indigo-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
-                onClick={() => handleModalEditarTarea(tarea)}
-            >
-                Editar
-            </button>
+            {admin && (
+                <button
+                    className="bg-indigo-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                    onClick={() => handleModalEditarTarea(tarea)}
+                >
+                    Editar
+                </button>
+            )}            
 
             {estado ? (
                 <button
@@ -39,13 +43,14 @@ export const Tarea = ({tarea}) => {
             )}
 
             
-            
-            <button
-                className="bg-red-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
-                onClick={() => handleModalEliminarTarea(tarea)}
-            >
-                Eliminar
-            </button>
+            {admin && (
+                <button
+                    className="bg-red-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"
+                    onClick={() => handleModalEliminarTarea(tarea)}
+                >
+                    Eliminar
+                </button>
+            )}            
         </div>
     </div>
   )

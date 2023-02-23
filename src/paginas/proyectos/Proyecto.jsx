@@ -6,6 +6,7 @@ import  useProyectos  from "../../hooks/useProyectos";
 import { 
   ModalFormularioTarea , 
   ModalEliminarTarea , 
+  ModalEliminarColaborador ,
   Tarea , 
   Alerta , 
   Colaborador } from "../../components";
@@ -119,6 +120,7 @@ export const Proyecto = () => {
 
           <ModalFormularioTarea />
           <ModalEliminarTarea />
+          <ModalEliminarColaborador />
 
         </>        
     )

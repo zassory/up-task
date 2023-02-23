@@ -10,3 +10,4 @@ export * from './Tarea';
 export * from './ModalEliminarTarea';
 export * from './FormularioColaborador';
 export * from './Colaborador';
+export * from './ModalEliminarColaborador';

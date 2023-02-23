@@ -337,7 +337,6 @@ const ProyectosProvider = ({children}) => {
     const agregarColaborador = async email => {
         
         try{
-
             const token = localStorage.getItem('token');
             if(!token)  return;
         

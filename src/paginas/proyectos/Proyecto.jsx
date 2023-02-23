@@ -19,9 +19,7 @@ export const Proyecto = () => {
   useEffect( ()=> {
     obtenerProyecto(params.id);
   }, [] );
-
-  console.log(proyecto);
-
+  
   const { nombre } = proyecto;
 
   if(cargando) return 'Cargando...';
@@ -109,7 +107,7 @@ export const Proyecto = () => {
           <div className="bg-white shadow mt-10 rounded-lg">
               {proyecto.colaboradores?.length ?
                 proyecto.colaboradores?.map(colaborador => (
-                  <Colaborador 
+                  <Colaborador
                     key={colaborador._id}
                     colaborador={colaborador}
                   />

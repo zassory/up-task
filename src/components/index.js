@@ -11,3 +11,4 @@ export * from './ModalEliminarTarea';
 export * from './FormularioColaborador';
 export * from './Colaborador';
 export * from './ModalEliminarColaborador';
+export * from './Busqueda';

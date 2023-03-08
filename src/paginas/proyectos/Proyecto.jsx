@@ -18,9 +18,7 @@ export const Proyecto = () => {
 
   const params = useParams();
 
-  const { obtenerProyecto , proyecto , cargando , handleModalTarea , alerta } = useProyectos();
-
-  console.log(proyecto);
+  const { obtenerProyecto , proyecto , cargando , handleModalTarea , alerta } = useProyectos();  
   
   const admin = useAdmin();
 
@@ -33,8 +31,6 @@ export const Proyecto = () => {
   if(cargando) return 'Cargando...';
 
   const { msg } = alerta;
-
-  console.log("Proyecto: ",proyecto);  
 
   return  (
     <>

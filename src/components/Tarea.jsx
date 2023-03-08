@@ -20,7 +20,7 @@ export const Tarea = ({tarea}) => {
             { estado && <p className='text-xs bg-green-600 uppercase p-1 rounded-lg
             text-white text-center'>Completada por: {tarea.completado.nombre}</p> }
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col lg:flex-row gap-4">
             {admin && (
                 <button
                     className="bg-indigo-600 px-4 py-3 text-white uppercase font-bold text-sm rounded-lg"

@@ -8,16 +8,22 @@ import {
     ConfirmarCuenta ,
  } from './paginas/usuarios';
 
-import { Proyectos , NuevoProyecto , Proyecto , EditarProyecto } from './paginas/proyectos';
+import { 
+    Proyectos , 
+    NuevoProyecto , 
+    Proyecto , 
+    EditarProyecto 
+  } from './paginas/proyectos';
 
-import { NuevoColaborador } from './paginas/colaborador';
+import { 
+    NuevoColaborador 
+  } from './paginas/colaborador';
 
 import { AuthProvider , ProyectosProvider } from './context';
 
 function App() {
   
-
-  return (    
+  return (
     <BrowserRouter>
       <AuthProvider>
         <ProyectosProvider>

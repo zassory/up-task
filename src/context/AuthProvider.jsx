@@ -7,9 +7,7 @@ const AuthContext = createContext();//<-- this is my context
 const AuthProvider = ({children}) => {
 
     const [auth,setAuth] = useState({});
-    const [cargando,setCargando] = useState(true);
-
-    const navigate = useNavigate();
+    const [cargando,setCargando] = useState(true);    
 
     useEffect(()=> {
         const autenticarUsuario = async() => {
@@ -28,8 +26,7 @@ const AuthProvider = ({children}) => {
 
             try{
                 const { data } = await clienteAxios('/usuarios/perfil', config);
-                setAuth(data);
-                //navigate('/proyectos');
+                setAuth(data);                
             }catch(error){
                 setAuth({});
             } finally {

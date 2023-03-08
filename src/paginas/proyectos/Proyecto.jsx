@@ -19,6 +19,8 @@ export const Proyecto = () => {
   const params = useParams();
 
   const { obtenerProyecto , proyecto , cargando , handleModalTarea , alerta } = useProyectos();
+
+  console.log(proyecto);
   
   const admin = useAdmin();
 

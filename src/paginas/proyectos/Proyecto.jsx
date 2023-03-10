@@ -23,7 +23,13 @@ export const Proyecto = () => {
 
   const params = useParams();
 
-  const { obtenerProyecto , proyecto , cargando , handleModalTarea , alerta } = useProyectos();  
+  const { 
+      obtenerProyecto , 
+      proyecto , 
+      cargando , 
+      handleModalTarea , 
+      alerta ,
+      submitTareasProyecto } = useProyectos();  
   
   const admin = useAdmin();
 
@@ -38,10 +44,13 @@ export const Proyecto = () => {
     socket.emit("abrir proyecto", params.id);
   }, [] );
 
-  useEffect( ()=> {
-    socket.on('respuesta', (persona) => {
-      console.log(persona)
-    })
+
+  useEffect(()=> {
+    socket.on("tarea agregada", tareaNueva => {
+        if(tareaNueva.proyecto === proyecto._id){
+          submitTareasProyecto(tareaNueva);
+        }
+    });
   });
   
   const { nombre } = proyecto;

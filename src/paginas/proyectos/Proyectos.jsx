@@ -1,19 +1,13 @@
 import { useEffect } from "react";
 import useProyectos from "../../hooks/useProyectos";
 import { Alerta , PreviewProyecto } from "../../components";
-import io from 'socket.io-client';
 
-let socket;
 
 export const Proyectos = () => {
 
   const { proyectos , alerta } = useProyectos();
 
-  useEffect(()=> {
-    socket = io(import.meta.env.VITE_BACKEND_URL);
-    //socket.emit('prueba','Nicolas');    ;
-    socket.emit('prueba',proyectos);
-  },[]);
+  
 
   const { msg } = alerta;
   

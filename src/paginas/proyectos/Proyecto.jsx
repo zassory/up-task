@@ -14,6 +14,11 @@ import {
   Alerta , 
   Colaborador } from "../../components";
 
+//Socket
+import io from 'socket.io-client';
+
+let socket;
+
 export const Proyecto = () => {
 
   const params = useParams();
@@ -25,6 +30,19 @@ export const Proyecto = () => {
   useEffect( ()=> {
     obtenerProyecto(params.id);
   }, [] );
+
+  useEffect( ()=> {
+    //Abro mi coneccion
+    socket = io(import.meta.env.VITE_BACKEND_URL);
+    //Le digo en que proyecto estoy
+    socket.emit("abrir proyecto", params.id);
+  }, [] );
+
+  useEffect( ()=> {
+    socket.on('respuesta', (persona) => {
+      console.log(persona)
+    })
+  });
   
   const { nombre } = proyecto;
 

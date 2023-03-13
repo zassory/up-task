@@ -29,7 +29,8 @@ export const Proyecto = () => {
       cargando , 
       handleModalTarea , 
       alerta ,
-      submitTareasProyecto } = useProyectos();  
+      submitTareasProyecto ,
+      eliminarTareaProyecto , } = useProyectos();  
   
   const admin = useAdmin();
 
@@ -51,6 +52,13 @@ export const Proyecto = () => {
           submitTareasProyecto(tareaNueva);
         }
     });
+
+    socket.on('tarea eliminada', tareaEliminada => {
+      if(tareaEliminada.proyecto === proyecto._id){
+        eliminarTareaProyecto(tareaEliminada);
+      }
+    });
+
   });
   
   const { nombre } = proyecto;

@@ -32,6 +32,7 @@ export const Proyecto = () => {
       submitTareasProyecto ,
       eliminarTareaProyecto ,
       actualizarTareaProyecto ,
+      cambiarEstadoTarea ,
       } = useProyectos();
   
   const admin = useAdmin();
@@ -65,6 +66,14 @@ export const Proyecto = () => {
       if(tareaActualizada.proyecto._id === proyecto._id){
         actualizarTareaProyecto(tareaActualizada);
       }
+    });
+
+    socket.on('nuevo estado', nuevoEstadoTarea => {
+
+      if(nuevoEstadoTarea.proyecto._id === proyecto._id){
+        cambiarEstadoTarea(nuevoEstadoTarea);
+      }
+
     })
 
   });

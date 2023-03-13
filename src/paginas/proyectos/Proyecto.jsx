@@ -30,7 +30,9 @@ export const Proyecto = () => {
       handleModalTarea , 
       alerta ,
       submitTareasProyecto ,
-      eliminarTareaProyecto , } = useProyectos();  
+      eliminarTareaProyecto ,
+      actualizarTareaProyecto ,
+      } = useProyectos();
   
   const admin = useAdmin();
 
@@ -58,6 +60,12 @@ export const Proyecto = () => {
         eliminarTareaProyecto(tareaEliminada);
       }
     });
+
+    socket.on('tarea actualizada', tareaActualizada => {
+      if(tareaActualizada.proyecto._id === proyecto._id){
+        actualizarTareaProyecto(tareaActualizada);
+      }
+    })
 
   });
   
